@@ -1,11 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { Profile } from './profile/profile';
+import { Component, Injectable, signal } from '@angular/core';
+import { StudentCard } from './student-card/student-card';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
 @Component({
   selector: 'app-root',
-  imports: [Profile],
+  imports: [StudentCard],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('Lec6-An');
+  export class App {
+    protected readonly title = signal('Lec6-An');
+
+    public count = signal(0);
+
+    constructor() {
+      console.log('The count is: ' + this.count());
+      this.count.set(3)
+      console.log('The count is: ' + this.count() );
+  }
 }
