@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal , computed, effect} from '@angular/core';
 
 @Component({
   selector: 'app-student-card',
@@ -6,39 +6,21 @@ import { Component } from '@angular/core';
   styleUrl: './student-card.css',
 })
 export class StudentCard {
-  //properties
   name: string = 'Ali';
-  age = 30;
+  age = signal(30);
   major = "Doctor"
-  image = "Nature.jpg"
-  salary:number|undefined // NAN => if the user entered a value that is not a number
-  isActive = false
-  skills = ["HTML" , "CSS" , "JS" , "C++"]
+  isAdultVaribale = computed(() => this.age() >=18)
 
-  //methods
   changeAge(){
-    this.age +=   20
+    // this.age.set(20)
+
+    this.age.update(x => x +20)
   }
 
-  setSalary(event : Event){
+  effectAge = effect(()=>{
+    console.log("effect is running")
+    console.log("Current Age :" + this.age())
+  })
 
-    const input = event.target as HTMLInputElement
-
-    const enteredSalary = input.value
-
-
-    if(Number.isNaN(enteredSalary) ){
-      this.salary = undefined
-    }
-    else{
-      this.salary = +enteredSalary
-    }
-  }
-// !true = false, ,, !false = true
-  showStudent( ){
-    this.isActive = !this.isActive
-
-  }
-
-
+  
 }

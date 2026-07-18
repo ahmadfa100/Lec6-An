@@ -1,28 +1,14 @@
-<p>student-card works!</p>
 
-<!-- is active == true -->
-
-@if(isActive){
+<div>
 
   <p>student name : {{name}}</p>
-  <p>student age : {{age }}</p>
+  <p>student age : {{age() }}</p>
   <p>student major : {{major}}</p>
-  <p>student salary : {{salary}}</p>
-}
+  <p>{{isAdultVaribale()}}</p>
 
-<img [src]="image" width="200px" alt="Nature">
-<button style="display: block; margin-top: 20px;" (click)="changeAge()"> click the button</button>
+  <button style="display: block; margin-top: 20px;" (click)="changeAge()"> click me</button>
 
-<!-- <input type="text" style="dis÷play: block; margin-top: 20px;" (keyup)="showTheKey($event)"> -->
 
-<input type="text" style="display: block; margin-top: 20px;" (input)="setSalary($event)">
 
-<button (click)="showStudent()" style="display: block;margin-top: 20px;"> click me</button>
+</div>
 
-<h3 style="margin-top: 40px;"> My Skills</h3>
-<ul>
-  @for(skill of skills; track skill){
-    <li>{{skill}}</li>
-
-  }
-</ul>
