@@ -1,23 +1,14 @@
 import { Component, Injectable, signal } from '@angular/core';
 import { StudentCard } from './student-card/student-card';
+import { StudentParent } from "./student-parent/student-parent";
 
 @Injectable({
   providedIn: 'root',
 })
 @Component({
   selector: 'app-root',
-  imports: [StudentCard],
+  imports: [StudentCard, StudentParent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('Lec6-An');
-
-  public count = signal(0);
-
-  constructor() {
-    console.log('The count is: ' + this.count());
-    this.count.set(3);
-    console.log('The count is: ' + this.count());
-  }
-}
+export class App {}
