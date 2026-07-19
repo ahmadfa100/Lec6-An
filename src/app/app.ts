@@ -1,13 +1,13 @@
 import { Component, Injectable, signal } from '@angular/core';
-import { StudentCard } from './student-card/student-card';
-import { StudentParent } from "./student-parent/student-parent";
+import { StudentParent } from './student-parent/student-parent';
+import { MessageParent } from "./message-parent/message-parent";
 
 @Injectable({
   providedIn: 'root',
 })
 @Component({
   selector: 'app-root',
-  imports: [StudentCard, StudentParent],
+  imports: [StudentParent, MessageParent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
